@@ -1,6 +1,19 @@
-# Getting Started with Create React App
+# CENTURIONART - Art Gallery Marketplace
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern art gallery marketplace built with React, Material-UI, and Express.
+
+## Quick Start
+
+Install dependencies for both client and server:
+
+
+npm install
+
+cd server && npm install
+
+npm run dev form Server to start
+
+npm run start
 
 ## Available Scripts
 
