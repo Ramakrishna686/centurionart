@@ -10,7 +10,7 @@ app.use(express.json());
 const users = [];
 
 app.post('/api/register', (req, res) => {
-  const { username, email, password } = req.body;
+  const { username, email, password, role } = req.body;
   
   const userExists = users.find(user => user.email === email);
   if (userExists) {
@@ -21,7 +21,8 @@ app.post('/api/register', (req, res) => {
     id: users.length + 1,
     username,
     email,
-    password
+    password,
+    role
   };
 
   users.push(newUser);
@@ -41,7 +42,8 @@ app.post('/api/login', (req, res) => {
     user: {
       id: user.id,
       username: user.username,
-      email: user.email
+      email: user.email,
+      role: user.role
     },
     token: 'mock-jwt-token-' + user.id
   });
@@ -99,7 +101,7 @@ app.post('/api/create-checkout-session', async (req, res) => {
 // Artworks endpoint with pagination
 app.get('/api/artworks', async (req, res) => {
   const page = parseInt(req.query._page) || 1;
-  const limit = parseInt(req.query._limit) || 6;
+  const limit = parseInt(req.query._limit) || 100;
   const skip = (page - 1) * limit;
 
   try {

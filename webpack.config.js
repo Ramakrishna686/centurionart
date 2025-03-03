@@ -39,6 +39,7 @@ module.exports = {
     hot: true
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
+    fullySpecified: false,
   }
 };
